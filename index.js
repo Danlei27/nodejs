@@ -22,8 +22,13 @@ app.get("/blog/:artigo?",function(req,res){//parametro opcional(?)
     }
 })
 
-app.get("/canal/youtube",function(req,res){
-    res.send("<h1>Bem vindo ao meu canal!<h1/>")
+app.get("/canal/youtube",function(req,res){ //ex: localhost:4000/canal/youtube?canal=danleisniper
+    var canal = req.query["canal"];
+    if(canal){
+        res.send("<h1>Bem vindo ao meu canal!" + canal + "<h1/>")
+    }else{
+        res.send("Nenhum canal fornecido!");
+    }
 })
 
 
